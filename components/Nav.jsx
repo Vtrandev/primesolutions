@@ -4,7 +4,7 @@ import React from "react";
 
 function Nav() {
   return (
-    <nav className="flex justify-between py-4">
+    <nav className="flex justify-between py-4 text-base">
       <Link href="/" className="flex gap-2 flex-center">
         <Image
           src="/assets/logo.png"
@@ -18,16 +18,16 @@ function Nav() {
 
       <div className="flex">
         <Link href="/"
-        className="mr-5 font-bold">Home</Link>
+        className="mr-5 font-bold hidden md:flex hover:underline">Home</Link>
         
         <Link href="/form"
-        className="mr-5 font-bold">Apply</Link>
+        className="mr-5 font-bold hidden md:flex hover:underline">Apply</Link>
 
         <Link href="/about"
-        className="mr-5 font-bold">About</Link>
+        className="mr-2 md:mr-5 font-bold hover:underline">About</Link>
 
         <Link href="#footer"
-        className="mr-5 font-bold">Contact</Link>
+        className="mr-2 md:mr-5 font-bold hover:underline">Contact</Link>
       </div>
     </nav>
   );

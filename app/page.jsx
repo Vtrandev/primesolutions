@@ -1,4 +1,4 @@
-import Main from "@/components/Main"
+import Main from "@/components/Landing"
 import Questions from "@/components/Questions"
 import Testimonial from "@/components/Testimonial"
 

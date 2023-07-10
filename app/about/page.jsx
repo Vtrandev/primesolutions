@@ -2,7 +2,7 @@ import React from "react";
 
 const About = () => {
   return (
-    <div className="mx-[100px] mb-28 xl:mx-[200px] ">
+    <div className="md:mx-14 mb-28">
       <h1 className="title">Welcome to PrimeSolutions Financing!</h1>
 
       <p>
