@@ -8,6 +8,14 @@
   --background-end-rgb: 255, 255, 255;
 }
 
+.title {
+  @apply text-4xl font-bold mt-[100px] mb-14
+}
+
+.button {
+  @apply px-4 py-2 bg-[#5E00D6] text-slate-100 text-xl font-bold rounded-md
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;

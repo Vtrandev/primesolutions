@@ -10,7 +10,7 @@ export const metadata = {
 const RootLayout = ({ children }) => {
   return (
     <html lang="en">
-      <body className="max-w-screen-2xl mx-auto">
+      <body className="max-w-screen-2xl mx-14 xl:mx-auto">
         <main className="app">
           <Nav />
 

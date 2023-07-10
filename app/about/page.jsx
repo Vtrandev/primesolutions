@@ -2,11 +2,11 @@ import React from "react";
 
 const About = () => {
   return (
-    <div>
-      <h1>Welcome to PrimeSolution Financing!</h1>
+    <div className="mx-[100px] mb-28 xl:mx-[200px] ">
+      <h1 className="title">Welcome to PrimeSolutions Financing!</h1>
 
       <p>
-        At [Lending Company Name], we are dedicated to providing reliable
+        At <span className="font-bold">PrimeSolutions Financing</span>, we are dedicated to providing reliable
         financial solutions tailored to meet the diverse needs of our clients.
         With years of experience in the lending industry, we have established
         ourselves as a trusted and reputable institution committed to helping
@@ -25,11 +25,10 @@ const About = () => {
         process as smooth and transparent as possible. We believe in building
         long-lasting relationships with our clients based on trust, integrity,
         and exceptional service.
-        <br />
       </p>
-
+      <br />
       <p>
-        At [Lending Company Name], we prioritize responsible lending practices.
+        At <span className="font-bold">PrimeSolutions Financing</span>, we prioritize responsible lending practices.
         We conduct thorough assessments of each applicant's financial situation
         to ensure that our loan products align with their ability to repay. Our
         dedicated team works closely with clients to understand their needs,
@@ -40,7 +39,6 @@ const About = () => {
         effectively.
       </p>
       <br />
-
       <p>
         Beyond lending, we are also passionate about financial education and
         empowerment. We believe that access to information and resources is
