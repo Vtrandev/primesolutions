@@ -2,9 +2,6 @@ import { google } from "googleapis";
 
 //http://localhost:3000/api/lead
 
-// const { name, email, number, title, buy, budget, trade } = req.body;
-// console.log(name, email, number, title, buy, budget, trade);
-
 export async function GET(request) {
   const users = [
     { id: 1, name: "John" },
@@ -13,12 +10,14 @@ export async function GET(request) {
   return new Response(JSON.stringify(users));
 }
 
-//
+
+// const { name, email, number, title, buy, budget, trade } = req.body;
+// console.log(name, email, number, title, buy, budget, trade);
+
 // export async function POST(request) {
 //   console.log(request.body)
 
 //   return new Response(JSON.stringify({ id: 1, name: "John" }));
-
 
 //   const auth = new google.auth.GoogleAuth({
 //     credentials: {

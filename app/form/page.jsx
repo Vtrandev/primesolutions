@@ -4,25 +4,24 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";
 import { GoogleSpreadsheet } from "google-spreadsheet";
-import { JWT } from 'google-auth-library'
+import { JWT } from "google-auth-library";
+import moment from "moment/moment";
 
 const Form = () => {
   const router = useRouter();
 
   // Config variables
   const SPREADSHEET_ID = process.env.NEXT_PUBLIC_SPREADSHEET_ID;
-
   const SHEET_ID = process.env.NEXT_PUBLIC_SHEET_ID;
-
   const GOOGLE_CLIENT_EMAIL = process.env.NEXT_PUBLIC_GOOGLE_CLIENT_EMAIL;
-
-  const GOOGLE_SERVICE_PRIVATE_KEY = process.env.GOOGLE_SERVICE_PRIVATE_KEY.replace(/\\n/g, '\n');
+  const GOOGLE_SERVICE_PRIVATE_KEY =
+    process.env.GOOGLE_SERVICE_PRIVATE_KEY.replace(/\\n/g, "\n");
 
   const SCOPES = [
-    'https://www.googleapis.com/auth/spreadsheets',
-    'https://www.googleapis.com/auth/drive.file',
+    "https://www.googleapis.com/auth/spreadsheets",
+    "https://www.googleapis.com/auth/drive.file",
   ];
-  
+
   const jwt = new JWT({
     email: GOOGLE_CLIENT_EMAIL,
     key: GOOGLE_SERVICE_PRIVATE_KEY,
@@ -33,24 +32,15 @@ const Form = () => {
   const doc = new GoogleSpreadsheet(SPREADSHEET_ID, jwt);
 
   const appendSpreadsheet = async (row) => {
-
     try {
-      // await doc.useServiceAccountAuth({
-      //   client_email: GOOGLE_CLIENT_EMAIL,
-      //   private_key: GOOGLE_SERVICE_PRIVATE_KEY
-      // });      
-
       // loads document properties and worksheets
       await doc.loadInfo();
+      console.log(doc.title);
 
-      console.log(doc.title)
-
-  
       const sheet = doc.sheetsByIndex[0];
       await sheet.addRow(row);
-
     } catch (e) {
-      console.error('Error: ', e);
+      console.error("Error: ", e);
     }
   };
 
@@ -60,9 +50,9 @@ const Form = () => {
     formState: { errors },
   } = useForm();
 
-  async function onSubmit(values) {
-    console.log(values.name);
+  const time = moment().format("MMMM Do YYYY, h:mm:ss a");
 
+  async function onSubmit(values) {
     const newRow = {
       Name: values.name,
       Email: values.email,
@@ -71,49 +61,72 @@ const Form = () => {
       Buying: values.buy,
       Budget: values.budget,
       Trade: values.trade,
-    }
+      Credit: values.credit,
+      Employment: values.employment,
+      Income: values.income,
+      Duration: values.duration,
+      Location: values.location,
+      Timestamp: time,
+    };
 
-    appendSpreadsheet(newRow)
-
-
-    router.push("/success");
+    appendSpreadsheet(newRow);
+    // router.push("/success");
   }
 
   return (
     <div className="max-w-screen-xl mx-auto ml-5 md:ml-28 mb-5 md:mb-20">
       <h1 className="title">Application Form</h1>
       <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col w-[80%]">
-        <label className="block">
+        <label
+          className={`block ${errors.number && "text-red-600"} `}
+          htmlFor="name"
+        >
           Name {errors.name && `(${errors.name.message})`}
         </label>
         <input
           className="form"
           type="text"
           placeholder="Name"
-          {...register("name", { required: false, maxLength: 80 })}
+          name="name"
+          {...register("name", { required: "Enter your name", maxLength: 80 })}
         />
 
-        <label className="block">Email</label>
+        <label
+          className={`block ${errors.number && "text-red-600"} `}
+          htmlFor="email"
+        >
+          Email {errors.email && `(${errors.email.message})`}
+        </label>
         <input
           className="form"
           type="text"
           placeholder="Email"
-          {...register("email", { required: false, pattern: /^\S+@\S+$/i })}
+          {...register("email", {
+            required: "Enter your email",
+            pattern: /^\S+@\S+$/i,
+          })}
         />
 
-        <label className="block">Phone number</label>
+        <label
+          className={`block ${errors.number && "text-red-600"} `}
+          htmlFor="number"
+        >
+          Phone number {errors.number && `(${errors.number.message})`}
+        </label>
         <input
           className="form"
           type="tel"
           placeholder="Mobile number"
           {...register("number", {
-            required: false,
+            required: "Enter your phone #",
             minLength: 6,
             maxLength: 12,
           })}
         />
 
-        <label className="block">Title</label>
+        <label className="block" htmlFor="title">
+          Title
+        </label>
 
         <select className="form" {...register("title", { required: false })}>
           <option value="Mr">Mr</option>
@@ -122,7 +135,9 @@ const Form = () => {
           <option value="Dr">Dr</option>
         </select>
 
-        <label className="block">What are you looking to buy?</label>
+        <label className="block" htmlFor="buy">
+          What are you looking to buy?
+        </label>
 
         <select className="form" {...register("buy")}>
           <option value="Car">Car</option>
@@ -133,7 +148,9 @@ const Form = () => {
           <option value="Motorcycle">Motorcycle</option>
         </select>
 
-        <label className="block">What is your budget per month?</label>
+        <label className="block" htmlFor="budget">
+          What is your budget per month?
+        </label>
 
         <select className="form" {...register("budget")}>
           <option value="$100-$500">$100-$500</option>
@@ -142,18 +159,63 @@ const Form = () => {
           <option value="$1600-$2000">$1600-$2000</option>
         </select>
 
-        <label className="block">Do you have a trade-in?</label>
+        <label className="block" htmlFor="trade">
+          Do you have a trade-in?
+        </label>
 
         <select className="form" {...register("trade")}>
           <option value="Yes">Yes</option>
           <option value="No">No</option>
         </select>
 
-        {/* <FormCard question="What is your credit score?" />
-        <FormCard question="Employment status?" />
-        <FormCard question="Currently monthly gross income?" />
-        <FormCard question="How long have you been working in your current role?" />
-        <FormCard question="Where are you looking to purchase? (City, Province)" /> */}
+        <label className="block" htmlFor="credit">
+          What is your credit score?
+        </label>
+        <select className="form" {...register("credit")}>
+          <option value="0-500">0-500</option>
+          <option value="501-750">501-750</option>
+          <option value="751-900">751-900</option>
+        </select>
+
+        <label className="block" htmlFor="employment">
+          What is your employment?
+        </label>
+        <input
+          className="form"
+          type="text"
+          placeholder="employment"
+          {...register("employment", {})}
+        />
+
+        <label className="block" htmlFor="income">
+          What is your current monthly gross income?
+        </label>
+        <input
+          className="form"
+          type="number"
+          placeholder="Current monthly gross income"
+          {...register("income", {})}
+        />
+
+        <label className="block" htmlFor="duration">
+          How long have you been working?
+        </label>
+        <input
+          className="form"
+          type="text"
+          placeholder="How long have you been working?"
+          {...register("duration", {})}
+        />
+
+        <label className="block" htmlFor="credit">
+          Where are you located? (City, Province)
+        </label>
+        <input
+          className="form"
+          type="text"
+          placeholder="location"
+          {...register("location", {})}
+        />
 
         <div>
           <button type="submit" className="button">
