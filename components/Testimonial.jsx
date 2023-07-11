@@ -12,7 +12,7 @@ function TestimonialCard({ testimonial, name }) {
 const Testimonial = () => {
 
   return (
-    <section className="md:mx-[50px] lg:mx-[100px] 2xl:mx-[200px] mb-20">
+    <section className="mx-5 md:mx-[50px] lg:mx-[100px] 2xl:mx-[200px] mb-20">
       <h1 className="flex justify-center title">
         What others are saying about us!
       </h1>

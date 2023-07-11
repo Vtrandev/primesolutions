@@ -4,7 +4,7 @@ import Testimonial from "@/components/Testimonial"
 
 const Home = () => {
   return (
-    <section className="w-full flex-center flex-col">
+    <section className="flex-center flex-col">
         <Main />
 
         <Testimonial />

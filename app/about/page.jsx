@@ -2,7 +2,7 @@ import React from "react";
 
 const About = () => {
   return (
-    <div className="md:mx-14 mb-28">
+    <div className="mx-4 md:mx-14 mb-28">
       <h1 className="title">Welcome to PrimeSolutions Financing!</h1>
 
       <p>
