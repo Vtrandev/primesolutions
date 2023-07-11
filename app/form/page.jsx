@@ -53,23 +53,26 @@ const Form = () => {
   const time = moment().format("MMMM Do YYYY, h:mm:ss a");
 
   async function onSubmit(values) {
-    const newRow = {
-      Name: values.name,
-      Email: values.email,
-      Phone: values.number,
-      Title: values.title,
-      Buying: values.buy,
-      Budget: values.budget,
-      Trade: values.trade,
-      Credit: values.credit,
-      Employment: values.employment,
-      Income: values.income,
-      Duration: values.duration,
-      Location: values.location,
-      Timestamp: time,
-    };
+    if (values) {
+      const newRow = {
+        Name: values.name,
+        Email: values.email,
+        Phone: values.number,
+        Title: values.title,
+        Buying: values.buy,
+        Budget: values.budget,
+        Trade: values.trade,
+        Credit: values.credit,
+        Employment: values.employment,
+        Income: values.income,
+        Duration: values.duration,
+        Location: values.location,
+        Timestamp: time,
+      };
 
-    appendSpreadsheet(newRow);
+      appendSpreadsheet(newRow);
+    }
+
     // router.push("/success");
   }
 
