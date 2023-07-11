@@ -73,7 +73,7 @@ const Form = () => {
       appendSpreadsheet(newRow);
     }
 
-    // router.push("/success");
+    router.push("/success");
   }
 
   return (
