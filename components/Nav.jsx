@@ -2,11 +2,13 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import logoIMG from "../public/assets/logo.png";
+import Burgermenu from "./Burgermenu";
 
 function Nav() {
+
   return (
     <nav className="flex justify-between py-4 text-base items-center">
-      <Link href="/" className="flex gap-2 items-center">
+      <Link href="/" className="flex gap-2 items-center ml-5">
         <Image
           src={logoIMG}
           alt="PrimeSolutions logo"
@@ -19,17 +21,19 @@ function Nav() {
         <p className="font-bold">PrimeSolutions Financing</p>
       </Link>
 
-      <div className="flex">
+      <Burgermenu />
+
+      <div className="hidden md:flex">
         <Link
           href="/"
-          className="mr-5 font-bold hidden md:flex hover:text-[#5E00D6] hover:underline"
+          className="mr-5 font-bold hover:text-[#5E00D6] hover:underline"
         >
           Home
         </Link>
 
         <Link
           href="/form"
-          className="mr-5 font-bold hidden md:flex hover:text-[#5E00D6] hover:underline"
+          className="mr-5 font-bold hover:text-[#5E00D6] hover:underline"
         >
           Apply
         </Link>
@@ -48,6 +52,8 @@ function Nav() {
           Contact
         </Link>
       </div>
+
+
     </nav>
   );
 }

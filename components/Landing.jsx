@@ -11,7 +11,6 @@ const Landing = () => {
         src={backgroundImg}
         alt="World background"
         loading="lazy"
-        placeholder="blur"
         className="w-full opacity-90 lg:mx-auto"
       />
 
@@ -36,7 +35,6 @@ const Landing = () => {
           src={carImg}
           alt="Car image"
           loading="lazy"
-          placeholder="blur"
           className="w-1/2 h-1/2 md:w-1/3 md:h-1/3"
         />
       </div>

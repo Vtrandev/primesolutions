@@ -90,7 +90,7 @@ const Form = () => {
           className="form"
           type="text"
           placeholder="Name"
-          name="name"
+          id="name"
           {...register("name", { required: "Enter your name", maxLength: 80 })}
         />
 
@@ -104,6 +104,7 @@ const Form = () => {
           className="form"
           type="text"
           placeholder="Email"
+          id="email"
           {...register("email", {
             required: "Enter your email",
             pattern: /^\S+@\S+$/i,
@@ -119,6 +120,7 @@ const Form = () => {
         <input
           className="form"
           type="tel"
+          id="number"
           placeholder="Mobile number"
           {...register("number", {
             required: "Enter your phone #",
@@ -131,7 +133,8 @@ const Form = () => {
           Title
         </label>
 
-        <select className="form" {...register("title", { required: false })}>
+        <select className="form"
+        id="title" {...register("title", { required: false })}>
           <option value="Mr">Mr</option>
           <option value="Mrs">Mrs</option>
           <option value="Miss">Miss</option>
@@ -142,7 +145,8 @@ const Form = () => {
           What are you looking to buy?
         </label>
 
-        <select className="form" {...register("buy")}>
+        <select className="form"
+        id="buy" {...register("buy")}>
           <option value="Car">Car</option>
           <option value="Truck">Truck</option>
           <option value="SUV">SUV</option>
@@ -155,7 +159,8 @@ const Form = () => {
           What is your budget per month?
         </label>
 
-        <select className="form" {...register("budget")}>
+        <select className="form"
+        id="budget" {...register("budget")}>
           <option value="$100-$500">$100-$500</option>
           <option value="$500-$1000">$500-$1000</option>
           <option value="$1000-$1500">$1000-$1500</option>
@@ -166,7 +171,8 @@ const Form = () => {
           Do you have a trade-in?
         </label>
 
-        <select className="form" {...register("trade")}>
+        <select className="form"
+        id="trade" {...register("trade")}>
           <option value="Yes">Yes</option>
           <option value="No">No</option>
         </select>
@@ -174,7 +180,8 @@ const Form = () => {
         <label className="block" htmlFor="credit">
           What is your credit score?
         </label>
-        <select className="form" {...register("credit")}>
+        <select className="form"
+        id="credit" {...register("credit")}>
           <option value="0-500">0-500</option>
           <option value="501-750">501-750</option>
           <option value="751-900">751-900</option>
@@ -186,7 +193,8 @@ const Form = () => {
         <input
           className="form"
           type="text"
-          placeholder="employment"
+          placeholder="Employed, self-employed, etc"
+          id="employment"
           {...register("employment", {})}
         />
 
@@ -197,6 +205,7 @@ const Form = () => {
           className="form"
           type="number"
           placeholder="Current monthly gross income"
+          id="income"
           {...register("income", {})}
         />
 
@@ -206,17 +215,19 @@ const Form = () => {
         <input
           className="form"
           type="text"
-          placeholder="How long have you been working?"
+          placeholder="Length of work"
+          id="duration"
           {...register("duration", {})}
         />
 
-        <label className="block" htmlFor="credit">
+        <label className="block" htmlFor="location">
           Where are you located? (City, Province)
         </label>
         <input
           className="form"
           type="text"
-          placeholder="location"
+          placeholder="City, Province"
+          id="location"
           {...register("location", {})}
         />
 
