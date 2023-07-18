@@ -2,6 +2,7 @@
 
 import React, { useCallback } from "react";
 import useEmblaCarousel from "embla-carousel-react";
+import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/solid";
 
 function TestimonialCard({ testimonial, name }) {
   return (
@@ -53,10 +54,10 @@ const EmblaCarousel = () => {
         </div>
         <div className="flex justify-center">
           <button className="embla__prev m-2" onClick={scrollPrev}>
-            Prev
+            <ChevronLeftIcon className="w-6 h-6" />
           </button>
           <button className="embla__next m-2" onClick={scrollNext}>
-            Next
+            <ChevronRightIcon className="w-6 h-6" />
           </button>
         </div>
     </div>
