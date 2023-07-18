@@ -15,7 +15,7 @@ function TestimonialCard({ testimonial, name }) {
 }
 
 async function dataFetch() {
-  const { data } = await axios.get("http://localhost:3000/api/testimonial");
+  const { data } = await axios.get("/api/testimonial");
   return data;
 }
 
