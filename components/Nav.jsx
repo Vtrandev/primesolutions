@@ -5,7 +5,6 @@ import logoIMG from "../public/assets/logo.png";
 import Burgermenu from "./Burgermenu";
 
 function Nav() {
-
   return (
     <nav className="flex justify-between py-4 text-base items-center">
       <Link href="/" className="flex gap-2 items-center ml-5">
@@ -14,7 +13,7 @@ function Nav() {
           alt="PrimeSolutions logo"
           style={{
             width: 40,
-            height: 40
+            height: 40,
           }}
           className="object-contain"
         />
@@ -23,19 +22,12 @@ function Nav() {
 
       <Burgermenu />
 
-      <div className="hidden md:flex">
+      <div className="hidden items-center md:flex">
         <Link
           href="/"
           className="mr-5 font-bold hover:text-[#5E00D6] hover:underline"
         >
           Home
-        </Link>
-
-        <Link
-          href="/form"
-          className="mr-5 font-bold hover:text-[#5E00D6] hover:underline"
-        >
-          Apply
         </Link>
 
         <Link
@@ -51,9 +43,10 @@ function Nav() {
         >
           Contact
         </Link>
+        <button className="text-md py-2 px-4 bg-[#5E00D6] text-white font-bold rounded-2xl">
+          <Link href="/form">Apply Now</Link>
+        </button>
       </div>
-
-
     </nav>
   );
 }

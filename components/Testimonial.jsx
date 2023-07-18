@@ -1,8 +1,9 @@
 "use client";
 
-import React, { useCallback } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/solid";
+import axios from "axios";
 
 function TestimonialCard({ testimonial, name }) {
   return (
@@ -13,8 +14,21 @@ function TestimonialCard({ testimonial, name }) {
   );
 }
 
+async function dataFetch() {
+  const { data } = await axios.get("http://localhost:3000/api/testimonial");
+  return data;
+}
+
 const EmblaCarousel = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
+  const [data, setData] = useState(false);
+
+  useEffect(() => {
+    async function fetchData() {
+      setData(await dataFetch());
+    }
+    fetchData();
+  }, []);
 
   const scrollPrev = useCallback(() => {
     if (emblaApi) emblaApi.scrollPrev();
@@ -26,45 +40,32 @@ const EmblaCarousel = () => {
 
   return (
     <div className="embla w-[80%]" ref={emblaRef}>
-        <div className="embla__container">
-          <div className="embla__slide p-5 border-2 border-black drop-shadow-lg">
-            <TestimonialCard
-              testimonial="Super easy! Amazing service! Highly recommended!"
-              name="John"
-            />
-          </div>
-          <div className="embla__slide p-5 border-2 border-black drop-shadow-lg">
-            <TestimonialCard
-              testimonial="Super easy! Amazing service! Highly recommended!"
-              name="Joe"
-            />
-          </div>
-          <div className="embla__slide p-5 border-2 border-black drop-shadow-lg">
-            <TestimonialCard
-              testimonial="Super easy! Amazing service! Highly recommended!"
-              name="Bob"
-            />
-          </div>
-          <div className="embla__slide p-5 border-2 border-black drop-shadow-lg">
-            <TestimonialCard
-              testimonial="Super easy! Amazing service! Highly recommended!"
-              name="Billy"
-            />
-          </div>
-        </div>
-        <div className="flex justify-center">
-          <button className="embla__prev m-2" onClick={scrollPrev}>
-            <ChevronLeftIcon className="w-6 h-6" />
-          </button>
-          <button className="embla__next m-2" onClick={scrollNext}>
-            <ChevronRightIcon className="w-6 h-6" />
-          </button>
-        </div>
+      <div className="embla__container">
+        {data
+          ? data.map((testimonial, id) => (
+              <div
+                className="embla__slide p-5 border-2 border-black drop-shadow-lg"
+                key={id}
+              >
+                <TestimonialCard
+                  testimonial={testimonial.testimonial}
+                  name={testimonial.name}
+                />
+              </div>
+            ))
+          : null}
+      </div>
+      <div className="flex justify-center">
+        <button className="embla__prev m-2" onClick={scrollPrev}>
+          <ChevronLeftIcon className="w-6 h-6" />
+        </button>
+        <button className="embla__next m-2" onClick={scrollNext}>
+          <ChevronRightIcon className="w-6 h-6" />
+        </button>
+      </div>
     </div>
   );
 };
-
-
 
 const Testimonial = () => {
   return (

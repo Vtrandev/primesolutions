@@ -6,19 +6,21 @@ import Link from "next/link";
 
 const Landing = () => {
   return (
-    <header className="m-8">
-      <Image
+    <header className="m-8 relative">
+      {/* <Image
         src={backgroundImg}
         alt="World background"
         loading="lazy"
-        className="w-full opacity-90 lg:mx-auto"
-      />
+        className="absolute bg-contain top-0 -z-10 opacity-40"
+      /> */}
 
-      <div className="flex">
-        <div className="mr-34">
-          <h1 className="font-bold text-xl md:text-3xl md:ml-12 mt-6">
+
+
+      <div className="flex flex-col items-center justify-center min-h-[50vh] lg:flex-row lg:items-center">
+        <div className="mr-34 text-[#303030]">
+          <h1 className="font-bold  text-xl md:text-3xl md:ml-12 mt-6">
             Looking for a car?
-            <br className="max-md:hidden" />
+            {/* <br className="max-md:hidden" /> */}
           </h1>
           <p className="font-bold text-xl md:text-3xl md:ml-12 mb-6">
             Speak to an expert now!
@@ -35,7 +37,7 @@ const Landing = () => {
           src={carImg}
           alt="Car image"
           loading="lazy"
-          className="w-1/2 h-1/2 md:w-1/3 md:h-1/3"
+          className="object-contain max-w-[40vh]"
         />
       </div>
     </header>

@@ -9,16 +9,29 @@
 } */
 
 .title {
-  @apply text-2xl md:text-4xl font-semibold m-4 md:my-8
+  @apply text-2xl md:text-4xl font-semibold m-4 md:my-8;
 }
 
 .button {
-  @apply px-4 py-2 bg-[#5E00D6] text-slate-100 text-base md:text-xl font-bold rounded-md
+  @apply px-6 py-2 bg-[#5E00D6] text-slate-100 text-base md:text-xl font-bold rounded-3xl;
+}
+
+.background {
+  content: "";
+  background: rgb(15, 0, 36);
+  background: linear-gradient(
+    303deg,
+    rgba(15, 0, 36, 1) 0%,
+    rgba(83, 9, 121, 1) 39%,
+    rgba(232, 232, 232, 1) 93%,
+    rgba(255, 255, 255, 1) 100%
+  );
 }
 
 .form {
-  @apply border-2 w-[100%] border-gray-500 rounded-md p-2 my-2 focus:ring-purple-400 focus:border-[#5E00D6] outline-none
+  @apply border-2 w-[100%] border-gray-500 rounded-md p-2 my-2 focus:ring-purple-400 focus:border-[#5E00D6] outline-none;
 }
+
 .embla {
   overflow: hidden;
 }
