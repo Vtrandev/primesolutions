@@ -28,8 +28,7 @@ const Burgermenu = () => {
         ${flexClass ? "flex" : "hidden "}`}
       >
         <button onClick={() => inactiveMenu()}>
-          <XMarkIcon className="absolute top-5 right-5 h-8 w-8"
-           />
+          <XMarkIcon className="absolute top-5 right-5 h-8 w-8" />
         </button>
         <Link
           href="/"
@@ -37,14 +36,6 @@ const Burgermenu = () => {
           onClick={() => inactiveMenu()}
         >
           Home
-        </Link>
-
-        <Link
-          href="/form"
-          className="text-2xl my-3 font-bold hover:text-[#5E00D6] hover:underline"
-          onClick={() => inactiveMenu()}
-        >
-          Apply
         </Link>
 
         <Link
@@ -57,11 +48,18 @@ const Burgermenu = () => {
 
         <Link
           href="#footer"
-          className="text-2xl my-3 font-bold hover:text-[#5E00D6] hover:underline"
+          className="text-2xl mt-3 mb-7 font-bold hover:text-[#5E00D6] hover:underline"
           onClick={() => inactiveMenu()}
         >
           Contact
         </Link>
+
+        <button
+          className="text-md py-2 px-4 bg-[#5E00D6] text-white font-bold rounded-2xl"
+          onClick={() => inactiveMenu()}
+        >
+          <Link href="/form">Apply Now</Link>
+        </button>
       </div>
     </>
   );

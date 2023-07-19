@@ -14,18 +14,14 @@ function TestimonialCard({ testimonial, name }) {
   );
 }
 
-async function dataFetch() {
-  const { data } = await axios.get("/api/testimonial");
-  return data;
-}
-
 const EmblaCarousel = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
   const [data, setData] = useState(false);
 
   useEffect(() => {
     async function fetchData() {
-      setData(await dataFetch());
+      const { data } = await axios.get("/api/testimonial");
+      setData(data);
     }
     fetchData();
   }, []);
