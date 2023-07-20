@@ -8,20 +8,20 @@ const Footer = () => {
     <footer
       id="footer"
       className="text-white text-sm bg-[#1F1F1F] 
-    flex justify-between px-2 py-3 md:py-10 md:px-16 md:text-base"
+    flex justify-between px-8 md:px-16 py-5 md:py-10  md:text-base"
     >
+      <Link href="/" className="items-center">
+        <Image
+          src={logoIMG}
+          alt="PrimeSolutions logo"
+          style={{
+            width: 60,
+            height: 60,
+          }}
+          className="object-contain"
+        />
+      </Link>
       <div className="flex flex-col p-2">
-        <Link href="/" className="items-center">
-          <Image
-            src={logoIMG}
-            alt="PrimeSolutions logo"
-            style={{
-              width: 60,
-              height: 60,
-            }}
-            className="object-contain"
-          />
-        </Link>
         <h2 className="font-bold mb-2">PrimeSolutions Financing</h2>
         <p className="mb-2">Visit Us!</p>
         <div className="flex flex-col md:flex-row">
@@ -29,6 +29,7 @@ const Footer = () => {
           <span className="mr-2 mb-2">Facebook</span>
           <span className="mr-2 mb-2">Tiktok</span>
         </div>
+        <p className="mb-2 text-sm">Copyright © 2023 PrimeSolutions. All Rights Reserved.</p>
       </div>
 
       <div className="flex flex-col p-2">
