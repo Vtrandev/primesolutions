@@ -22,28 +22,28 @@ function Nav() {
 
       <Burgermenu />
 
-      <div className="hidden items-center md:flex">
+      <div className="relative hidden items-center md:flex">
         <Link
           href="/"
-          className="mr-5 font-bold hover:text-[#5E00D6] hover:underline"
+          className="mr-5 font-bold text__underline relative hover:text-[#5E00D6]"
         >
           Home
         </Link>
 
         <Link
           href="/about"
-          className="mr-2 md:mr-5 font-bold hover:text-[#5E00D6] hover:underline"
+          className="mr-2 md:mr-5 font-bold text__underline relative hover:text-[#5E00D6]"
         >
           About
         </Link>
 
         <Link
           href="#footer"
-          className="mr-2 md:mr-5 font-bold hover:text-[#5E00D6] hover:underline"
+          className="mr-2 md:mr-5 font-bold text__underline relative hover:text-[#5E00D6]"
         >
           Contact
         </Link>
-        <button className="text-md py-2 px-4 bg-[#5E00D6] text-white font-bold rounded-2xl">
+        <button className="text-md py-2 px-4 bg-[#5E00D6] text-white font-bold rounded-3xl">
           <Link href="/form">Apply Now</Link>
         </button>
       </div>

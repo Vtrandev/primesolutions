@@ -78,7 +78,7 @@ const Form = () => {
 
   return (
     <div className="max-w-screen-xl mx-auto ml-5 md:ml-28 mb-5 md:mb-20">
-      <h1 className="title">Application Form</h1>
+      <h2 className="title">Application Form</h2>
       <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col w-[80%]">
         <label
           className={`block ${errors.number && "text-red-600"} `}

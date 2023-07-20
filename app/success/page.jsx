@@ -1,12 +1,19 @@
-import React from 'react'
+import Link from "next/link";
+import React from "react";
 
 const Success = () => {
   return (
-    <div className='title flex flex-col items-center py-24'>
-        <h1>Thank you for your application!</h1>
-        <h1>We will reach out to you soon.</h1>
-    </div>
-  )
-}
+    <section className="flex flex-col items-center py-24">
+      <h2 className="title">
+        Thank you for your application!
+        <br />
+        We will reach out to you soon.
+      </h2>
+      <Link href="/" className="text-lg font-semibold">
+        Back to Home
+      </Link>
+    </section>
+  );
+};
 
-export default Success
+export default Success;

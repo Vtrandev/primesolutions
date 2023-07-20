@@ -32,6 +32,36 @@ export async function GET(request) {
       answer:
         "The interest on a loan is calculated based on the loan amount, interest rate, and the loan term. It can be calculated using various methods, including simple interest or compound interest.",
     },
+    {
+      id: 6,
+      question: "Can I get a loan with bad credit?",
+      answer:
+        "It may be more challenging to get a loan with bad credit, but some lenders specialize in providing loans to individuals with less-than-perfect credit. These loans often come with higher interest rates or stricter terms.",
+    },
+    {
+      id: 7,
+      question: "How much can I borrow with a loan?",
+      answer:
+        "The amount you can borrow depends on several factors, including your income, creditworthiness, and the specific loan program. Lenders will assess your ability to repay the loan before determining the maximum amount they're willing to lend.",
+    },
+    {
+      id: 8,
+      question: "What is a loan term?",
+      answer:
+        "The loan term refers to the length of time over which the loan is repaid. It can range from a few months to several years, depending on the type of loan.",
+    },
+    {
+      id: 9,
+      question: "Can I pay off my loan early?",
+      answer:
+        "In most cases, yes. However, some loans may have prepayment penalties or fees for early repayment. It's essential to review your loan agreement or contact your lender to understand the terms and any potential costs associated with early repayment.",
+    },
+    {
+      id: 10,
+      question: "What happens if I default on a loan?",
+      answer:
+        "Defaulting on a loan means failing to make payments as agreed. The consequences can vary, but they often include late fees, damage to your credit score, collection efforts by the lender, and potential legal action.",
+    },
     // Add more FAQs here...
   ];
   return new Response(JSON.stringify(faqs));

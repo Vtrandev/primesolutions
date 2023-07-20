@@ -32,7 +32,7 @@ const Burgermenu = () => {
         </button>
         <Link
           href="/"
-          className="text-2xl mt-10 mb-3 font-bold hover:text-[#5E00D6] hover:underline"
+          className="text-2xl mt-10 mb-3 font-bold text__underline relative hover:text-[#5E00D6]"
           onClick={() => inactiveMenu()}
         >
           Home
@@ -40,7 +40,7 @@ const Burgermenu = () => {
 
         <Link
           href="/about"
-          className="text-2xl my-3 font-bold hover:text-[#5E00D6] hover:underline"
+          className="text-2xl my-3 font-bold text__underline relative hover:text-[#5E00D6]"
           onClick={() => inactiveMenu()}
         >
           About
@@ -48,14 +48,14 @@ const Burgermenu = () => {
 
         <Link
           href="#footer"
-          className="text-2xl mt-3 mb-7 font-bold hover:text-[#5E00D6] hover:underline"
+          className="text-2xl mt-3 mb-7 font-bold text__underline relative hover:text-[#5E00D6]"
           onClick={() => inactiveMenu()}
         >
           Contact
         </Link>
 
         <button
-          className="text-md py-2 px-4 bg-[#5E00D6] text-white font-bold rounded-2xl"
+          className="text-xl py-2 px-4 bg-[#5E00D6] text-white font-bold rounded-3xl"
           onClick={() => inactiveMenu()}
         >
           <Link href="/form">Apply Now</Link>

@@ -2,7 +2,7 @@ import React from "react";
 
 const About = () => {
   return (
-    <div className="mx-4 md:mx-14 mb-28">
+    <article className="mx-4 md:mx-14 mb-28">
       <h1 className="title">Welcome to PrimeSolutions Financing!</h1>
 
       <p>
@@ -49,7 +49,9 @@ const About = () => {
         financial journeys, supporting them not only with lending solutions but
         also with valuable guidance and support.
       </p>
-    </div>
+      <br />
+      <span className="italic">- Founder</span>
+    </article>
   );
 };
 

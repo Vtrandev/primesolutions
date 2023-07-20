@@ -15,13 +15,13 @@ const Landing = () => {
       />
 
       <div className="flex flex-col items-center justify-center min-h-[50vh] lg:flex-row lg:items-center">
-        <div className="mr-34 text-[#303030]">
-          <h1 className="font-bold  text-xl md:text-3xl md:ml-12 mt-6">
+        <div className="mr-34 text-[#1F1F1F]">
+          <h1 className="font-bold text-3xl mt-6 md:ml-12 ">
             Looking for a car?
           </h1>
-          <p className="font-bold text-xl md:text-3xl md:ml-12 mb-6">
+          <h1 className="font-bold text-xl md:text-3xl mb-6 md:ml-12 ">
             Speak to an expert now!
-          </p>
+          </h1>
 
           <p className="md:ml-12">
             <button className="button">
