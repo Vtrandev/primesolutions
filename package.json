@@ -10,9 +10,11 @@
   },
   "dependencies": {
     "@heroicons/react": "^2.0.18",
+    "@react-google-maps/api": "^2.19.2",
     "autoprefixer": "10.4.14",
     "axios": "^1.4.0",
     "embla-carousel-react": "^8.0.0-rc10",
+    "google-map-react": "^2.2.1",
     "google-spreadsheet": "^4.0.2",
     "googleapis": "^120.0.0",
     "moment": "^2.29.4",

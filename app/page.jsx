@@ -1,3 +1,4 @@
+import Googlemap from "@/components/Googlemap"
 import Main from "@/components/Landing"
 import Questions from "@/components/Questions"
 import Testimonial from "@/components/Testimonial"
@@ -10,6 +11,8 @@ const Home = () => {
         <Testimonial />
 
         <Questions />
+        
+        <Googlemap />
     </section>
   )
 }

@@ -7,14 +7,16 @@ import Link from "next/link";
 const Landing = () => {
   return (
     <header className="relative">
-      <Image
-        src={backgroundImg}
-        alt="World background"
-        loading="lazy"
-        className="absolute bg-center w-full min-h-[20vh] max-h-[40vh] -z-10 opacity-30"
-      />
+      <div className="absolute w-full h-[300px] md:h-[400px] overflow-hidden border -z-10 opacity-30">
+        <Image
+          src={backgroundImg}
+          alt="World background"
+          loading="lazy"
+          className="w-full"
+        />
+      </div>
 
-      <div className="flex flex-col items-center justify-center min-h-[50vh] lg:flex-row lg:items-center">
+      <div className="flex flex-col items-center justify-center min-h-[60vh] lg:flex-row lg:items-center">
         <div className="mr-34 text-[#1F1F1F]">
           <h1 className="font-bold text-3xl mt-6 md:ml-12 ">
             Looking for a car?

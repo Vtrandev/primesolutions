@@ -35,7 +35,7 @@ const Questions = () => {
       <h2 className="flex justify-center items-center title">
         Frequently Asked Questions
       </h2>
-      <div className="flex flex-row flex-wrap flex-grow">
+      <div className="flex flex-row flex-wrap">
         {questions &&
           questions.map((data) => (
             <QuestionCard question={data.question} answer={data.answer} />
