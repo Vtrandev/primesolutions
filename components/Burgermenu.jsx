@@ -55,7 +55,7 @@ const Burgermenu = () => {
         </Link>
 
         <button
-          className="text-xl py-2 px-4 bg-[#5E00D6] text-white font-bold rounded-3xl"
+          className="text-xl py-2 px-4 bg-[#5E00D6] hover:bg-[#a35dff] text-white font-bold rounded-3xl"
           onClick={() => inactiveMenu()}
         >
           <Link href="/form">Apply Now</Link>

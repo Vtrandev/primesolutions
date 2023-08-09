@@ -7,7 +7,7 @@
 }
 
 .button {
-  @apply px-6 py-2 bg-[#5E00D6] text-slate-100 text-base md:text-xl font-bold rounded-3xl;
+  @apply px-6 py-2 bg-[#5E00D6] hover:bg-[#7447ae] text-slate-100 text-base md:text-xl font-bold rounded-3xl;
 }
 
 .form {

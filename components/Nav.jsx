@@ -43,7 +43,7 @@ function Nav() {
         >
           Contact
         </Link>
-        <button className="text-md py-2 px-4 bg-[#5E00D6] text-white font-bold rounded-3xl">
+        <button className="text-md py-2 px-4 bg-[#5E00D6] hover:bg-[#a35dff] text-white font-bold rounded-3xl">
           <Link href="/form">Apply Now</Link>
         </button>
       </div>
