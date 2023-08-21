@@ -37,8 +37,8 @@ const Questions = () => {
       </h2>
       <div className="flex flex-row flex-wrap">
         {questions &&
-          questions.map((data) => (
-            <QuestionCard question={data.question} answer={data.answer} />
+          questions.map((data, index) => (
+            <QuestionCard question={data.question} answer={data.answer} key={index} />
           ))}
       </div>
     </section>

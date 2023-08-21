@@ -14,6 +14,16 @@
   @apply border-2 w-[100%] border-gray-500 rounded-md p-2 my-2 focus:ring-purple-400 focus:border-[#5E00D6] outline-none;
 }
 
+/* ------ Card */
+.card {
+  background-color: rgb(204, 255, 204);
+  border: 1px solid #333;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  display: block;
+}
+
+/* -----Carousel */
 .embla {
   overflow: hidden;
 }
@@ -26,6 +36,7 @@
   margin: 0 3px 0 3px;
 }
 
+/* -----Text underline */
 .text__underline::after {
   content: '';
   position: absolute;
