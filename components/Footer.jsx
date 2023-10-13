@@ -27,7 +27,6 @@ const Footer = () => {
           <p className="mb-2">Visit Us!</p>
           <div className="flex flex-col md:flex-row">
             <span className="mr-2 mb-2">Instagram</span>
-            <span className="mr-2 mb-2">Facebook</span>
             <span className="mr-2 mb-2">Tiktok</span>
           </div>
           <p className="mb-2 text-sm">Copyright © 2023 PrimeSolutions.</p>
@@ -41,9 +40,9 @@ const Footer = () => {
         <span className="mb-2">BC Team : 604-332-6846</span>
         <span className="mb-2">AB Team : 825-600-5316</span>
         <span className="mb-2">ON Team : 647-956-6100</span>
-        <p className="mb-2">
+        {/* <p className="mb-2">
           <a href="mailto:email@primesolutions.com">Email us</a>
-        </p>
+        </p> */}
       </div>
     </footer>
   );
