@@ -15,9 +15,6 @@ const Radio = ({ register, input, choice }) => {
           <p className="radio-tile-label">{choice}</p>
         </div>
       </div>
-
-      {/* <input  {...register(`${input}`)} type="radio" value={choice} />
-      <span className="pr-5">{choice}</span> */}
     </>
   );
 };

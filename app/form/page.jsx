@@ -1,12 +1,14 @@
 "use client";
 
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";
 import { GoogleSpreadsheet } from "google-spreadsheet";
 import { JWT } from "google-auth-library";
 import moment from "moment/moment";
-import Radio from "@/components/ui/Radio";
+import Formpage1 from "@/components/form/Formpage1";
+import Formpage3 from "@/components/form/Formpage3";
+import Formpage2 from "@/components/form/Formpage2";
 
 const Form = () => {
   const router = useRouter();
@@ -79,14 +81,14 @@ const Form = () => {
     }
   }
 
-  const [step, setStep] = useState(2);
+  const [step, setStep] = useState(1);
 
-  function NextStep(currStep) {
-    step < 3 && setStep(currStep + 1);
+  function NextStep() {
+    step < 3 && setStep(step + 1);
   }
 
-  function PrevStep(currStep) {
-    step > 1 && setStep(currStep - 1);
+  function PrevStep() {
+    step > 1 && setStep(step - 1);
   }
 
   return (
@@ -98,203 +100,20 @@ const Form = () => {
       >
         {/* ----------------------Step 1--------------- */}
         {step === 1 && (
-          <div className="card">
-            {/* Progress Bar */}
-            <div className="w-full bg-gray-200 rounded-full h-2.5 mb-4 dark:bg-gray-700">
-              <div className="bg-blue-600 h-2.5 w-[33%] rounded-full"></div>
-            </div>
-
-            <label
-              className={`block ${errors.name && "text-red-600"} `}
-              htmlFor="name"
-            >
-              Name {errors.name && `(${errors.name.message})`}
-            </label>
-            <input
-              className="form"
-              type="text"
-              placeholder="Name"
-              id="name"
-              {...register("name", {
-                required: "Enter your name",
-                maxLength: 80,
-              })}
-            />
-
-            <label
-              className={`block ${errors.email && "text-red-600"} `}
-              htmlFor="email"
-            >
-              Email {errors.email && `(${errors.email.message})`}
-            </label>
-            <input
-              className="form"
-              type="text"
-              placeholder="Email"
-              id="email"
-              {...register("email", {
-                required: "Enter your email",
-                pattern: /^\S+@\S+$/i,
-              })}
-            />
-
-            <label
-              className={`block ${errors.number && "text-red-600"} `}
-              htmlFor="number"
-            >
-              Phone number {errors.number && `(${errors.number.message})`}
-            </label>
-            <input
-              className="form"
-              type="tel"
-              id="number"
-              placeholder="Mobile number"
-              {...register("number", {
-                required: "Enter your phone #",
-                minLength: 6,
-                maxLength: 15,
-              })}
-            />
-
-            <label className="block" htmlFor="title">
-              Title
-            </label>
-
-            <select
-              className="form"
-              id="title"
-              {...register("title", { required: false })}
-            >
-              <option value="Mr">Mr</option>
-              <option value="Mrs">Mrs</option>
-              <option value="Miss">Miss</option>
-              <option value="Dr">Dr</option>
-              <option value="Other">Other</option>
-            </select>
-            <div className="text-center">
-              <button className="button" onClick={() => NextStep(step)}>
-                Next
-              </button>
-            </div>
-          </div>
+          <Formpage1 register={register} errors={errors} NextStep={NextStep} />
         )}
 
         {/* ----------------------Step 2--------------- */}
         {step === 2 && (
-          <div className="card">
-            {/* Progress Bar */}
-            <div className="w-full bg-gray-200 rounded-full h-2.5 mb-4 dark:bg-gray-700">
-              <div className="bg-blue-600 h-full w-[66%] rounded-full"></div>
-            </div>
-
-            <label className="block" htmlFor="buy">
-              What are you looking to buy?
-            </label>
-            <div className="radio-tile-group">
-              <Radio register={register} input="buy" choice="Car" />
-              <Radio register={register} input="buy" choice="Truck" />
-              <Radio register={register} input="buy" choice="Van" />
-              <Radio register={register} input="buy" choice="SUV" />
-            </div>
-
-            <label className="block" htmlFor="budget">
-              What is your budget per month?
-            </label>
-            <div className="radio-tile-group">
-              <Radio register={register} input="budget" choice="$100-$500" />
-              <Radio register={register} input="budget" choice="$600-$1000" />
-              <Radio register={register} input="budget" choice="$1100-$1500" />
-              <Radio register={register} input="budget" choice="$1600-$2000" />
-            </div>
-
-            <label className="block" htmlFor="trade">
-              Do you have a trade-in?
-            </label>
-
-            <div className="radio-tile-group">
-              <Radio register={register} input="trade" choice="Yes" />
-              <Radio register={register} input="trade" choice="No" />
-            </div>
-
-            <label className="block" htmlFor="credit">
-              What is your credit score?
-            </label>
-            <div className="radio-tile-group">
-              <Radio register={register} input="credit" choice="0-500" />
-              <Radio register={register} input="credit" choice="501-750" />
-              <Radio register={register} input="credit" choice="751-900" />
-            </div>
-
-            <div className="text-center">
-              <button className="button mr-3" onClick={() => PrevStep(step)}>
-                Previous
-              </button>
-              <button className="button" onClick={() => NextStep(step)}>
-                Next
-              </button>
-            </div>
-          </div>
+          <Formpage2
+            register={register}
+            PrevStep={PrevStep}
+            NextStep={NextStep}
+          />
         )}
 
         {/* ----------------------Step 3--------------- */}
-        {step === 3 && (
-          <div className="card">
-            <div className="w-full bg-gray-200 rounded-full h-2.5 mb-4 dark:bg-gray-700">
-              <div className="bg-blue-600 h-2.5 w-[100%] rounded-full"></div>
-            </div>
-            <label className="block" htmlFor="employment">
-              What is your employment?
-            </label>
-            <input
-              className="form"
-              type="text"
-              placeholder="Employed, self-employed, etc"
-              id="employment"
-              {...register("employment", {})}
-            />
-
-            <label className="block" htmlFor="income">
-              What is your current monthly gross income?
-            </label>
-            <input
-              className="form"
-              type="number"
-              placeholder="Current monthly gross income"
-              id="income"
-              {...register("income", {})}
-            />
-
-            <label className="block" htmlFor="duration">
-              How long have you been working?
-            </label>
-            <input
-              className="form"
-              type="text"
-              placeholder="Length of work"
-              id="duration"
-              {...register("duration", {})}
-            />
-
-            <label className="block" htmlFor="location">
-              Where are you located? (City, Province)
-            </label>
-            <input
-              className="form"
-              type="text"
-              placeholder="City, Province"
-              id="location"
-              {...register("location", {})}
-            />
-            <div className="text-center">
-              <button className="button mr-3" onClick={() => PrevStep(step)}>
-                Previous
-              </button>
-              <button type="submit" className="button">
-                Submit
-              </button>
-            </div>
-          </div>
-        )}
+        {step === 3 && <Formpage3 register={register} PrevStep={PrevStep} />}
       </form>
     </div>
   );
