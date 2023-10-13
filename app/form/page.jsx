@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import { GoogleSpreadsheet } from "google-spreadsheet";
 import { JWT } from "google-auth-library";
 import moment from "moment/moment";
+import Radio from "@/components/ui/Radio";
 
 const Form = () => {
   const router = useRouter();
@@ -72,19 +73,20 @@ const Form = () => {
 
       appendSpreadsheet(newRow);
       router.push("/success");
-    } else alert("Submit failed. Check Name, Email, & Phone");
+    } else {
+      alert("Submit failed. Check Name, Email, & Phone");
+      setStep(1);
+    }
   }
 
-  const [step, setStep] = useState(1);
+  const [step, setStep] = useState(2);
 
   function NextStep(currStep) {
     step < 3 && setStep(currStep + 1);
   }
 
   function PrevStep(currStep) {
-    if (step > 0) {
-      setStep(currStep - 1);
-    }
+    step > 1 && setStep(currStep - 1);
   }
 
   return (
@@ -97,6 +99,7 @@ const Form = () => {
         {/* ----------------------Step 1--------------- */}
         {step === 1 && (
           <div className="card">
+            {/* Progress Bar */}
             <div className="w-full bg-gray-200 rounded-full h-2.5 mb-4 dark:bg-gray-700">
               <div className="bg-blue-600 h-2.5 w-[33%] rounded-full"></div>
             </div>
@@ -179,50 +182,49 @@ const Form = () => {
         {/* ----------------------Step 2--------------- */}
         {step === 2 && (
           <div className="card">
+            {/* Progress Bar */}
             <div className="w-full bg-gray-200 rounded-full h-2.5 mb-4 dark:bg-gray-700">
-              <div className="bg-blue-600 h-2.5 w-[66%] rounded-full"></div>
+              <div className="bg-blue-600 h-full w-[66%] rounded-full"></div>
             </div>
+
             <label className="block" htmlFor="buy">
               What are you looking to buy?
             </label>
-
-            <select className="form" id="buy" {...register("buy")}>
-              <option value="Car">Car</option>
-              <option value="Truck">Truck</option>
-              <option value="SUV">SUV</option>
-              <option value="Van">Van</option>
-              <option value="RV/Trailer">RV/Trailer</option>
-              <option value="Motorcycle">Motorcycle</option>
-            </select>
+            <div className="radio-tile-group">
+              <Radio register={register} input="buy" choice="Car" />
+              <Radio register={register} input="buy" choice="Truck" />
+              <Radio register={register} input="buy" choice="Van" />
+              <Radio register={register} input="buy" choice="SUV" />
+            </div>
 
             <label className="block" htmlFor="budget">
               What is your budget per month?
             </label>
-
-            <select className="form" id="budget" {...register("budget")}>
-              <option value="$100-$500">$100-$500</option>
-              <option value="$500-$1000">$500-$1000</option>
-              <option value="$1000-$1500">$1000-$1500</option>
-              <option value="$1600-$2000">$1600-$2000</option>
-            </select>
+            <div className="radio-tile-group">
+              <Radio register={register} input="budget" choice="$100-$500" />
+              <Radio register={register} input="budget" choice="$600-$1000" />
+              <Radio register={register} input="budget" choice="$1100-$1500" />
+              <Radio register={register} input="budget" choice="$1600-$2000" />
+            </div>
 
             <label className="block" htmlFor="trade">
               Do you have a trade-in?
             </label>
 
-            <select className="form" id="trade" {...register("trade")}>
-              <option value="Yes">Yes</option>
-              <option value="No">No</option>
-            </select>
+            <div className="radio-tile-group">
+              <Radio register={register} input="trade" choice="Yes" />
+              <Radio register={register} input="trade" choice="No" />
+            </div>
 
             <label className="block" htmlFor="credit">
               What is your credit score?
             </label>
-            <select className="form" id="credit" {...register("credit")}>
-              <option value="0-500">0-500</option>
-              <option value="501-750">501-750</option>
-              <option value="751-900">751-900</option>
-            </select>
+            <div className="radio-tile-group">
+              <Radio register={register} input="credit" choice="0-500" />
+              <Radio register={register} input="credit" choice="501-750" />
+              <Radio register={register} input="credit" choice="751-900" />
+            </div>
+
             <div className="text-center">
               <button className="button mr-3" onClick={() => PrevStep(step)}>
                 Previous
