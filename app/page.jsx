@@ -2,6 +2,7 @@ import Googlemap from "@/components/Googlemap";
 import Main from "@/components/Landing";
 import Questions from "@/components/Questions";
 import Testimonial from "@/components/Testimonial";
+import Script from "next/script";
 
 const Home = () => {
   return (
