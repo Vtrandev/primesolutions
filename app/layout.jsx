@@ -1,6 +1,7 @@
 import Footer from "@/components/Footer";
 import Nav from "@/components/Nav";
 import "@/styles/globals.css";
+import Script from "next/script";
 
 export const metadata = {
   title: "PrimeSolutions Financing",
@@ -11,6 +12,16 @@ const RootLayout = ({ children }) => {
   return (
     <html lang="en">
       <body>
+      <Script src="https://www.googletagmanager.com/gtag/js?id=G-4M8QW8GP2L" />
+      <Script>
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+ 
+          gtag('config', 'G-4M8QW8GP2L');
+        `}
+      </Script>
         <main className="app max-w-screen-2xl mx-2 xl:mx-auto">
           <Nav />
           {children}
