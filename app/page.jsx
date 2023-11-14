@@ -1,12 +1,15 @@
 import Googlemap from "@/components/Googlemap";
-import Main from "@/components/Landing";
+import Landing from "@/components/Landing";
 import Questions from "@/components/Questions";
+import StepProcess from "@/components/StepProcess";
 import Testimonial from "@/components/Testimonial";
 
 const Home = () => {
   return (
     <section className="flex-center flex-col">
-      <Main />
+      <Landing />
+
+      <StepProcess />
 
       <Testimonial />
 

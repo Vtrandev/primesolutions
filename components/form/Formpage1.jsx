@@ -1,6 +1,6 @@
 import React from "react";
 
-const Formpage1 = ({ register, errors, NextStep}) => {
+const Formpage1 = ({ register, errors, NextStep }) => {
   return (
     <div className="card">
       {/* Progress Bar */}
@@ -56,8 +56,8 @@ const Formpage1 = ({ register, errors, NextStep}) => {
         placeholder="Mobile number"
         {...register("number", {
           required: "Enter your phone #",
-          minLength: 6,
-          maxLength: 15,
+          minLength: 10,
+          maxLength: 11,
         })}
       />
 

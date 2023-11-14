@@ -92,11 +92,11 @@ const Form = () => {
   }
 
   return (
-    <div className="max-w-screen-xl mb-5 md:mb-20">
+    <div className="flex flex-col items-center mb-6 md:mb-16">
       <h2 className="title text-center">Application Form</h2>
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="flex flex-col w-[80%] mx-auto"
+        className="flex flex-col w-full lg:w-[80%]"
       >
         {/* ----------------------Step 1--------------- */}
         {step === 1 && (

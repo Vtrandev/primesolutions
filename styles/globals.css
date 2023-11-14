@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+.border {
+  @apply border-black border-4
+}
+
 .title {
   @apply text-2xl md:text-4xl font-semibold m-4 md:my-8;
 }

@@ -7,7 +7,7 @@ import Link from "next/link";
 const Landing = () => {
   return (
     <header className="relative">
-      <div className="absolute w-full h-[300px] md:h-[400px] overflow-hidden border -z-10 opacity-30">
+      <div className="absolute w-full h-[300px] md:h-[400px] overflow-hidden -z-10 opacity-30">
         <Image
           src={backgroundImg}
           alt="World background"
