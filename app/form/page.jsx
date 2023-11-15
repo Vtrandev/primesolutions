@@ -12,6 +12,7 @@ import Formpage2 from "@/components/form/Formpage2";
 
 const Form = () => {
   const router = useRouter();
+  const [step, setStep] = useState(1);
 
   // Config variables
   const SPREADSHEET_ID = process.env.NEXT_PUBLIC_SPREADSHEET_ID;
@@ -81,7 +82,22 @@ const Form = () => {
     }
   }
 
-  const [step, setStep] = useState(1);
+  async function Capture(values) {
+    if (values.name && values.email && values.number) {
+      const newRow = {
+        Name: values.name,
+        Email: values.email,
+        Phone: values.number,
+        Title: values.title,
+        Timestamp: time,
+      };
+      appendSpreadsheet(newRow);
+      NextStep();
+    } else {
+      alert("Check Name, Email, & Phone for errors");
+      setStep(1)
+    }
+  }
 
   function NextStep() {
     step < 3 && setStep(step + 1);
@@ -100,7 +116,11 @@ const Form = () => {
       >
         {/* ----------------------Step 1--------------- */}
         {step === 1 && (
-          <Formpage1 register={register} errors={errors} NextStep={NextStep} />
+          <Formpage1
+            register={register}
+            errors={errors}
+            handleSubmit={handleSubmit(Capture)}
+          />
         )}
 
         {/* ----------------------Step 2--------------- */}
