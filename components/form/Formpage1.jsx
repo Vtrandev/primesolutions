@@ -1,6 +1,6 @@
 import React from "react";
 
-const Formpage1 = ({ register, errors, NextStep }) => {
+const Formpage1 = ({ register, errors, handleSubmit }) => {
   return (
     <div className="card">
       {/* Progress Bar */}
@@ -30,7 +30,9 @@ const Formpage1 = ({ register, errors, NextStep }) => {
         className={`block ${errors.email && "text-red-600"} `}
         htmlFor="email"
       >
-        Email {errors.email && `(${errors.email.message})`}
+        Email{" "}
+        {errors.email?.type == "required" && `(${errors.email.message})`}
+        {errors.email?.type == "pattern" && `(Incorrect format)`}
       </label>
       <input
         className="form"
@@ -47,7 +49,9 @@ const Formpage1 = ({ register, errors, NextStep }) => {
         className={`block ${errors.number && "text-red-600"} `}
         htmlFor="number"
       >
-        Phone number {errors.number && `(${errors.number.message})`}
+        Phone number{" "}
+        {errors.number?.type == "required" && `(${errors.number.message})`}
+        {errors.number?.type == "minLength" && `(Incorrect format)`}
       </label>
       <input
         className="form"
@@ -77,7 +81,14 @@ const Formpage1 = ({ register, errors, NextStep }) => {
         <option value="Other">Other</option>
       </select>
       <div className="text-center">
-        <button className="button" onClick={() => NextStep()}>
+        {/* Next button captures information to spreadsheet and brings to next step  */}
+        <button
+          type="submit"
+          className="button"
+          onClick={() => {
+            handleSubmit();
+          }}
+        >
           Next
         </button>
       </div>

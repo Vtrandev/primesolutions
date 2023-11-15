@@ -8,7 +8,7 @@ const Radio = ({ register, input, choice }) => {
           className="radio-button"
           {...register(`${input}`)}
           type="radio"
-          id={choice}
+          id={input}
           value={choice}
         />
         <div className="radio-tile">
